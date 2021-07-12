@@ -5,7 +5,7 @@ function setup() {
 }
 
 function draw() {
-	rotValue-=.01;
+	rotValue-=.001;
 	rotateX(-mouseY/200 + rotValue);
 	rotateY(-mouseX/400 + rotValue);
 

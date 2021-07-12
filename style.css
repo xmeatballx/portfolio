@@ -87,3 +87,19 @@ li {
   list-style: none;
   text-align: center;
 }
+
+@media (max-width: 1000px) {
+  a {
+    font-size: 6rem;
+  }
+
+  ul {
+    transform: translateY(50%);
+    height: 100%;
+    width:100%;
+  }
+
+  li {
+    margin: 1em 0;
+  }
+}
