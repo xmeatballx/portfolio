@@ -93,6 +93,10 @@ li {
     font-size: 6rem;
   }
 
+  a:hover {
+  font-size: 5.8rem;
+}
+
   ul {
     transform: translateY(50%);
     height: 100%;
