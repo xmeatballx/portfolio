@@ -23,7 +23,7 @@ function draw() {
 // }
 	fill(0);
 	stroke(`rgba(0,255,0,.5)`);
-	strokeWeight(1);
+	strokeWeight(.5);
 	sphere(windowWidth);
 	pop();
 }

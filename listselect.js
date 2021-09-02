@@ -1,6 +1,8 @@
 let landing = document.getElementById('landing');
 let landingButton = document.getElementById('landingbutton');
-let mainList = document.getElementsByClassName('main_list')
+let mainList = document.getElementsByClassName('main_list');
+let threejsButton = document.getElementById('threejs_id');
+let threejs = document.getElementsByClassName('threejs');
 let interactiveArt = document.getElementById('interactive_art_id');
 let artPieces = document.getElementsByClassName('interactive_art');
 let webDesign = document.getElementById('web_design_id');
@@ -15,6 +17,16 @@ landingbutton.onclick = () => {
 // landing.mousePressed(function(){
 // 		DeviceOrientationEvent.requestPermission();
 // });
+
+threejsButton.onclick = () => {
+	mainList.forEach(element => {
+		element.style.display = "none";
+	})
+
+	threejs.forEach(sketch => {
+		sketch.style.display = "block";
+	})
+}
 
 interactiveArt.onclick = () => {
 	// DeviceOrientationEvent.requestPermission();
@@ -39,6 +51,10 @@ webDesign.onclick = () => {
 
 for (var i = 0; i < back.length; i++) {
 	back[i].onclick = () => {
+		threejs.forEach(sketch => {
+			sketch.style.display = "none";
+		})
+
 		artPieces.forEach(piece => {
 			piece.style.display = "none";
 		})
