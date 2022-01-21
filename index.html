@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;700&family=Montserrat:wght@300;400&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
@@ -38,6 +43,7 @@
       }
     </script>
     <script id="plane-fs" type="x-shader/x-fragment">
+      precision mediump float;
               #ifdef GL_ES
               precision mediump float;
               #endif
@@ -122,12 +128,14 @@
       }
             void main() {
             vec2 st = gl_FragCoord.xy/resolution;
-            vec2 pos = vec2(st/1.5);
-            float n = pow(snoise(vec3(pos.x,pos.y,uTime)),.1);
-            gl_FragColor = vec4(n,n,n,1)+vec4(1.,.5,0.5,1.);
+            vec2 pos = vec2(st*2.);
+            float n = pow(snoise(vec3(pos.x,pos.y,uTime)),.5);
+            gl_FragColor = vec4(vec3(1.-n),1.-n);
+            //gl_FragColor = vec4(1,0,0,1);
             }
     </script>
     <script id="plane2-vs" type="x-shader/x-vertex">
+      precision mediump float;
       // those are the mandatory attributes that the lib sets
       attribute vec3 aVertexPosition;
       attribute vec2 aTextureCoord;
@@ -150,7 +158,7 @@
       }
     </script>
     <script id="plane2-fs" type="x-shader/x-fragment">
-
+      precision mediump float;
               uniform vec2 resolution;
               uniform vec2 u_mouse;
               uniform float uTime;
@@ -231,7 +239,7 @@
       }
             void main() {
             vec2 st = gl_FragCoord.xy/resolution;
-            vec2 pos = vec2(st/1.5);
+            vec2 pos = vec2(st/100.);
             float n = pow(snoise(vec3(pos.x,pos.y,uTime)),.1);
             gl_FragColor = vec4(1.,0.,0.,1.);
             }
@@ -244,9 +252,13 @@
       <!-- image that will be used as texture by our plane -->
       <!-- <img src="path/to/my-image.jpg" crossorigin="" /> -->
     </div>
-    <div class="plane2"></div>
-    <h1>Erik Jensen</h1>
-    <h2>Fullstack Creative Developer</h2>
+    <!-- <div class="plane2"></div> -->
+    <header>
+      <div class="hero">
+        <h1>Erik Jensen</h1>
+        <h2>Creative Frontend Developer</h2>
+      </div>
+    </header>
     <script src="curtains.umd.js"></script>
     <script src="script.js"></script>
   </body>

@@ -1,47 +1,83 @@
+body {
+  background-color: rgb(231, 231, 231);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  place-items: center;
+}
+
 #canvas {
   /* make the canvas wrapper fits the document */
   position: absolute;
+  z-index: -1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  height: 200vh !important;
-}
-
-canvas {
-  height: 200vh !important;
-}
-
-.plane,
-.plane2 {
-  /* define the size of your plane */
-  width: 100%;
   height: 100vh;
-  margin: 0;
-  padding: 0;
+}
+
+/* canvas {
+  height: 200vh !important;
+} */
+
+.plane {
+  /* define the size of your plane */
+  position: absolute;
+  inset: 0;
 }
 .plane img {
   /* hide the img element */
   display: none;
 }
 
-h1 {
-  font-family: Shrikhand;
+.hero {
+  position: relative;
+  z-index: 0;
+  width: 80vw;
+  height: 70vh;
+  margin: auto;
+  /* height: 90%; */
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 1vw;
+  padding: 2vh 2vw;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(50px);
+}
+
+.hero:before {
+  content: "";
   position: absolute;
-  top: 20%;
-  left: 10vw;
-  font-size: 10vw;
-  text-shadow: -5px 5px black;
-  color: white;
-  mix-blend-mode: difference;
+  inset: 0;
+  border-radius: 1vw;
+  filter: blur(5px);
+  box-shadow: -5px -5px 20px rgba(255, 255, 255, 0.75);
+}
+
+.hero:after {
+}
+
+h1 {
+  font-family: Libre Franklin, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 5vw;
+  /* text-shadow: -5px 5px rgb(255, 255, 255); */
+  color: rgb(0, 0, 0);
+  margin: 1rem 0;
+  /* mix-blend-mode: difference; */
 }
 
 h2 {
-  font-size: 5vw;
+  font-family: Libre Franklin, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 2vw;
   font-style: italic;
-  position: absolute;
-  top: 48%;
-  left: 10vw;
-  color: white;
-  mix-blend-mode: difference;
+  color: rgb(3, 3, 3);
+  margin: 0.5rem 0;
+  /* mix-blend-mode: difference; */
 }

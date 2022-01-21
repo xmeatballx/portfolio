@@ -44,15 +44,15 @@ window.addEventListener("load", () => {
   };
   // create our plane using our curtains object, the HTML element and the parameters
   const plane = new Plane(curtains, planeElement, params);
-  const plane2 = new Plane(curtains, planeElement2, params2);
+  // const plane2 = new Plane(curtains, planeElement2, params2);
 
   plane.onRender(() => {
     // use the onRender method of our plane fired at each requestAnimationFrame call
     plane.uniforms.time.value += 0.001; // update our time uniform value
   });
 
-  plane2.onRender(() => {
-    // use the onRender method of our plane fired at each requestAnimationFrame call
-    plane.uniforms.time.value += 0.001; // update our time uniform value
-  });
+  // plane2.onRender(() => {
+  //   // use the onRender method of our plane fired at each requestAnimationFrame call
+  //   plane.uniforms.time.value += 0.001; // update our time uniform value
+  // });
 });
