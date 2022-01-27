@@ -11,10 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&family=Montserrat:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;600;700&family=Montserrat:wght@300;400;500&family=Open+Sans:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
@@ -130,7 +129,7 @@
             vec2 st = gl_FragCoord.xy/resolution;
             vec2 pos = vec2(st*1.75);
             float n = pow(snoise(vec3(pos.x,pos.y,uTime*.25)),.5);
-            gl_FragColor = vec4(vec3(n*.2),1.-n);
+            gl_FragColor = vec4(vec3(1.-n*.2),1.-n);
             //gl_FragColor = vec4(1,0,0,1);
             }
     </script>
@@ -149,7 +148,10 @@
         <h2>creative frontend developer</h2>
         <p>
           I enjoy making satisfying user interfaces and engaging digital
-          experiences. Check out some of the projects I've been working on...
+          experiences.
+        </p>
+        <p>
+          <a href="#">Check out some of my work...</a>
         </p>
       </div>
     </header>

@@ -1,8 +1,10 @@
 :root {
-  --hue: 70;
-  --surface: hsl(var(--hue), 100%, 90%);
-  --surface1: hsla(var(--hue), 100%, 90%, 0.6);
-  --text: hsl(var(--hue), 20%, 5%);
+  --base: hsl(0, 0%, 0%);
+  --hue: 40;
+  --brand: hsl(var(--hue), 75%, 35%);
+  --surface: hsl(var(--hue), 25%, 5%);
+  --surface1: hsla(var(--hue), 10%, 5%, 0.25);
+  --text: hsl(var(--hue), 25%, 5%);
 }
 
 body {
@@ -10,8 +12,14 @@ body {
   margin: 0;
   padding: 0;
   color: var(--text);
-  font-family: Libre Franklin, Arial, sans-serif;
-  font-size: 12pt;
+  font-family: Open Sans, Arial, sans-serif;
+  font-size: 10pt;
+}
+
+h1,
+h2 {
+  font-family: Libre Franklin;
+  /* mix-blend-mode: difference; */
 }
 
 header {
@@ -51,12 +59,14 @@ header {
   /* width: 80vw; */
   /* height: 70vh; */
   margin: auto;
+  display: grid;
   /* height: 90%; */
-  background-color: var(--surface1);
-  border-radius: 1vw;
-  padding: 2vh 2vw;
-  box-shadow: 5px 5px 20px var(--text);
-  backdrop-filter: blur(40px);
+  /* background-color: var(--surface1); */
+  border-radius: 0.5em;
+  border: 6px solid var(--surface);
+  padding: 2.5ch 5ch;
+  box-shadow: 5px 5px 20px var(--surface);
+  backdrop-filter: invert() blur(10px) contrast(25%);
 }
 
 .plane:after {
@@ -65,12 +75,12 @@ header {
   position: absolute;
   inset: 0;
   /* background-color: red; */
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
 }
 
 h1 {
   font-weight: 700;
-  font-size: 4em;
+  font-size: 4.5em;
   kerning: 0.05em;
   margin: 0;
   /* margin-left: -0.2em; */
@@ -79,9 +89,8 @@ h1 {
 }
 
 h2 {
-  font-family: Libre Franklin, Arial, sans-serif;
-  font-weight: 100;
   font-size: 2em;
+  font-weight: 300;
   text-transform: capitalize;
   margin: 0;
   /* mix-blend-mode: difference; */
@@ -91,6 +100,11 @@ p {
   max-inline-size: 40ch;
   line-height: 2ch;
   font-weight: 400;
+}
+
+a {
+  color: var(--brand);
+  font-weight: 600;
 }
 
 @media (min-width: 768px) {
