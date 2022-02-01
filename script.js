@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
   // set up our WebGL context and append the canvas to our wrapper
   const curtains = new Curtains({
     container: "canvas",
+    watchScroll: false,
   });
   // get our plane element
   const planeElement = document.getElementsByClassName("plane")[0];
