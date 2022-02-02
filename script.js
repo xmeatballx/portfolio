@@ -57,3 +57,12 @@ window.addEventListener("load", () => {
   //   plane.uniforms.time.value += 0.001; // update our time uniform value
   // });
 });
+
+new fullpage('#fullpage', {
+	//options here
+	autoScrolling:true,
+	scrollHorizontally: true
+});
+
+//methods
+fullpage_api.setAllowScrolling(false);

@@ -2,20 +2,18 @@
 
 :root {
   --base: hsl(0, 0%, 0%);
-  --hue: 190;
-  --brand: hsl(var(--hue), 75%, 35%);
+  --hue: 200;
+  --brand: hsl(var(--hue), 75%, 45%);
   --surface: hsl(var(--hue), 25%, 10%);
   --surface1: hsla(var(--hue), 25%, 5%, 0.25);
-  --text: hsl(var(--hue), 5%, 75%);
+  --text: hsl(var(--hue), 5%, 85%);
 }
 
 body {
   box-sizing: border-box;
-  background: var(--surface);
+  background: var(--brand);
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  /* height: 95vh; */
   color: var(--text);
   font-family: "Raleway", sans-serif;
   font-size: 16pt;
@@ -36,46 +34,28 @@ header {
 }
 
 #canvas {
-  /* make the canvas wrapper fits the document */
   position: absolute;
   z-index: -1;
   inset: 0;
 }
 
-/* canvas {
-  height: 200vh !important;
-} */
-
 .plane {
-  /* define the size of your plane */
   position: absolute;
   inset: 0;
 }
 .plane img {
-  /* hide the img element */
   display: none;
 }
 
 .hero {
   z-index: 0;
-  /* width: 80vw; */
-  /* height: 70vh; */
   margin: auto;
   display: flex;
   flex-direction: column;
   gap: 0.5ch;
   width: fit-content;
   height: 100%;
-  border-radius: 0.5em;
-  /* border: 6px solid var(--surface); */
-  box-shadow: 5px 5px 20px var(--surface);
-  /* height: 90%; */
-  background: radial-gradient(var(--surface), rgba(0, 0, 0, 0) 200%);
-  /* filter: contrast(200%); */
   padding: 5% 5%;
-  /* mix-blend-mode: difference; */
-  backdrop-filter: blur(10px) brightness(25%);
-  -webkit-backdrop-filter: blur(10px) brightness(25%);
 }
 
 .plane:after {
@@ -83,9 +63,8 @@ header {
   display: block;
   position: absolute;
   inset: 0;
-  /* background-color: red; */
-  backdrop-filter: blur(10px) brightness(50%) contrast(95%);
-  -webkit-backdrop-filter: blur(10px) brightness(50%) contrast(95%);
+  backdrop-filter: blur(10px) brightness(30%) contrast(95%);
+  -webkit-backdrop-filter: blur(10px) brightness(40%) contrast(95%);
 }
 
 h1 {
@@ -114,6 +93,13 @@ a {
   color: var(--brand);
   font-weight: 600;
   margin: 0;
+}
+
+.work {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: var(--surface);
 }
 
 @media (min-width: 870px) {

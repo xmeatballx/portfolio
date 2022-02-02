@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js"
+          integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.css"
+            integrity="sha512-hGBKkjAVJUXoImyDezOKpzuY4LS1eTvJ4HTC/pbxn47x5zNzGA1vi3vFQhhOehWLTNHdn+2Yqh/IRNPw/8JF/A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
   </head>
   <body>
@@ -150,6 +158,7 @@ float snoise(vec3 v)
             //gl_FragColor = vec4(1,0,0,1);
             }
     </script>
+    <div id="fullpage" class="scroll-container">
     <!-- div that will hold our WebGL canvas -->
     <div id="canvas"></div>
 
@@ -159,7 +168,7 @@ float snoise(vec3 v)
       <!-- <img src="path/to/my-image.jpg" crossorigin="" /> -->
     </div>
     <!-- <div class="plane2"></div> -->
-    <header>
+    <header class="section">
       <div class="hero">
         <h1>Erik Jensen</h1>
         <h2>creative front end developer</h2>
@@ -170,6 +179,12 @@ float snoise(vec3 v)
           <a href="#">Check out some of my work...</a>
       </div>
     </header>
+    <main class="section">
+      <section class="work">
+        <h2>Work</h2>
+      </section>
+    </main>
+    </div>
     <script src="curtains.umd.js"></script>
     <script src="script.js"></script>
   </body>
