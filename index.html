@@ -5,14 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js"
-          integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-          <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.css"
-            integrity="sha512-hGBKkjAVJUXoImyDezOKpzuY4LS1eTvJ4HTC/pbxn47x5zNzGA1vi3vFQhhOehWLTNHdn+2Yqh/IRNPw/8JF/A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/pageable@latest/dist/pageable.min.css">
+    <script src="https://unpkg.com/pageable@latest/dist/pageable.min.js"
+      crossorigin="anonymous"></script>
     <title>Document</title>
   </head>
   <body>
@@ -158,17 +153,17 @@ float snoise(vec3 v)
             //gl_FragColor = vec4(1,0,0,1);
             }
     </script>
-    <div id="fullpage" class="scroll-container">
+    <div class="container">
     <!-- div that will hold our WebGL canvas -->
     <div id="canvas"></div>
-
+    
+    <header data-anchor="Page 1">
     <!-- div used to create our plane -->
     <div class="plane">
       <!-- image that will be used as texture by our plane -->
       <!-- <img src="path/to/my-image.jpg" crossorigin="" /> -->
     </div>
     <!-- <div class="plane2"></div> -->
-    <header class="section">
       <div class="hero">
         <h1>Erik Jensen</h1>
         <h2>creative front end developer</h2>
@@ -179,9 +174,31 @@ float snoise(vec3 v)
           <a href="#">Check out some of my work...</a>
       </div>
     </header>
-    <main class="section">
-      <section class="work">
+    <main>
+      <section class="work" data-anchor="Page 2">
         <h2>Work</h2>
+        <article>
+          <img src="colorchords.png" alt="" class="screenshot">
+          <aside>
+            <h3>ColorChords</h3>
+            <p>ColorChords is a single page web application that can create color palletes
+            using musical harmonic ratios and generate CSS variables to be used in your
+            development and design projects.</p>
+            <div>
+              <img
+                src="https://img.icons8.com/material-outlined/24/000000/external-link.png" />
+              <img src="https://img.icons8.com/material-outlined/24/000000/github.png" />
+              <h4>
+                Technologies:
+              </h4>
+              <ul>
+                <li>HTML</li>
+                <li>Javascript</li>
+                <li>Tailwind CSS</li>
+              </p>
+            </div>
+          </aside>
+        </article>
       </section>
     </main>
     </div>
