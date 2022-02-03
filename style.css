@@ -16,8 +16,20 @@ body {
   color: var(--text);
   font-family: "Raleway", sans-serif;
   font-size: 14pt;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.section {
+  scroll-snap-align: start;
+}
+
+.page {
 }
 
 body::-webkit-scrollbar {
@@ -34,20 +46,23 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  /* width: 90%; */
   height: 100vh;
-  position: relative;
+  /* position: relative; */
 }
 
 #canvas {
   position: absolute;
   z-index: -1;
   inset: 0;
+  height: 200vh;
 }
 
 .plane {
   position: absolute;
   inset: 0;
+  z-index: -1;
+  height: 200vh;
 }
 .plane img {
   display: none;
@@ -66,6 +81,7 @@ header {
 
 .plane:after {
   content: "";
+  z-index: -1;
   display: block;
   position: absolute;
   inset: 0;
@@ -76,13 +92,13 @@ header {
 h1 {
   font-weight: 700;
   line-height: 1;
-  font-size: max(5vw, 3.25em);
+  font-size: max(5vw, 3em);
   kerning: 0em;
   margin: 0;
 }
 
 h2 {
-  font-size: 1.25em;
+  font-size: 1.125em;
   font-weight: 500;
   text-transform: capitalize;
   margin: 0;
@@ -119,6 +135,7 @@ a {
 }
 
 .work {
+  z-index: 0;
   display: flex;
   flex-direction: column;
   gap: 2ch;
@@ -126,7 +143,7 @@ a {
   /* place-items: center; */
   height: 100vh;
   /* margin: auto; */
-  background: var(--surface1);
+  /* background: var(--surface1); */
   color: var(--text);
 }
 
@@ -195,6 +212,7 @@ aside {
   list-style: none;
   display: flex;
   gap: 1ch;
+  opacity: 0.8;
 }
 
 ul.tech > li {
@@ -202,9 +220,24 @@ ul.tech > li {
   color: var(--surface1);
   font-weight: 700;
   padding: 0.25ch;
+  height: 1.75ch;
+  line-height: 1;
 }
 svg {
   fill: var(--text);
+}
+
+.description {
+  display: grid;
+  width: 90vw;
+  margin: auto;
+  grid-template-rows: min-content min-content min-content;
+  gap: 2ch;
+  backdrop-filter: blur(50px);
+  box-shadow: 5px 5px 10px var(--surface1);
+  height: 100%;
+  place-content: center;
+  padding: 0 1ch;
 }
 
 .pg-pips {
@@ -232,6 +265,10 @@ svg {
     margin: 0;
   }
 
+  .work h2 {
+    font-size: 2em;
+  }
+
   header {
     width: 100%;
     height: 100vh;
@@ -244,5 +281,48 @@ svg {
     max-width: 80vw;
     height: auto;
     justify-content: center;
+  }
+
+  article {
+    display: grid;
+    grid-auto-flow: column;
+    width: 90vw;
+  }
+
+  aside {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    gap: 0ch;
+  }
+
+  .description {
+    width: auto;
+    padding: 0 2ch;
+  }
+
+  .work h3 {
+    margin: 0;
+    width: 100%;
+  }
+
+  .work p {
+    max-inline-size: 35ch;
+    margin-bottom: 0;
+  }
+
+  .tech,
+  .icons,
+  .work h3 {
+    width: 100%;
+    margin: 0;
+  }
+
+  .screenshot {
+    flex-grow: 0;
+    width: 55vw;
+    height: auto;
+    margin: 0;
+    height: 100%;
   }
 }

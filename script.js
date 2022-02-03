@@ -58,5 +58,4 @@ window.addEventListener("load", () => {
   // });
 });
 
-
-new Pageable(".container")
+// new Pageable(".container", { animation: 1000 });
