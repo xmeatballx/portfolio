@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
   // set up our WebGL context and append the canvas to our wrapper
   const curtains = new Curtains({
     container: "canvas",
+    watchScroll: false,
   });
   // get our plane element
   const planeElement = document.getElementsByClassName("plane")[0];
@@ -56,3 +57,6 @@ window.addEventListener("load", () => {
   //   plane.uniforms.time.value += 0.001; // update our time uniform value
   // });
 });
+
+
+new Pageable(".container")
