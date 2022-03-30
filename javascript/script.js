@@ -1,12 +1,14 @@
+// import { gsap } from 'gsap';
+
 // wait for everything to be ready
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   // set up our WebGL context and append the canvas to our wrapper
   const curtains = new Curtains({
-    container: "canvas",
+    container: 'canvas',
     watchScroll: false,
   });
   // get our plane element
-  const planeElement = document.getElementsByClassName("plane")[0];
+  const planeElement = document.getElementsByClassName('plane')[0];
 
   // set our initial parameters (basic uniforms)
   const params = {
@@ -14,13 +16,13 @@ window.addEventListener("load", () => {
     fragmentShader: fragmentShader, // our fragment shader ID
     uniforms: {
       time: {
-        name: "uTime", // uniform name that will be passed to our shaders
-        type: "1f", // this means our uniform is a float
+        name: 'uTime', // uniform name that will be passed to our shaders
+        type: '1f', // this means our uniform is a float
         value: 0,
       },
       resolution: {
-        name: "resolution",
-        type: "2f",
+        name: 'resolution',
+        type: '2f',
         value: new Vec2(window.innerWidth, window.innerHeight),
       },
     },
@@ -32,3 +34,36 @@ window.addEventListener("load", () => {
     plane.uniforms.time.value += 0.001; // update our time uniform value
   });
 });
+
+const container = document.querySelector('.container');
+const nav = document.querySelector('nav');
+const links = [...nav.children];
+const sections = document.querySelectorAll('section#work');
+const options = {
+  root: container,
+  rootMargin: '0px',
+  threshold: 0.1,
+};
+const observer = new IntersectionObserver(handleIntersections, options);
+
+links.forEach((link) => {
+  link.addEventListener('click', handleClick);
+});
+
+function handleClick(e) {
+  links.forEach((link) => link.classList.remove('active'));
+  e.target.classList.add('active');
+}
+
+[...sections].map((section) => {
+  observer.observe(section);
+});
+console.log(observer);
+
+function handleIntersections(e) {
+  if (e[0].intersectionRatio == 0) return;
+  links.forEach((link) => link.classList.remove('active'));
+  const index = [...sections].findIndex((entry) => entry == e[0].target);
+  console.log(e);
+  links[index].classList.add('active');
+}
