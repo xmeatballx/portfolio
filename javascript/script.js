@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
 const container = document.querySelector('.container');
 const nav = document.querySelector('nav');
 const links = [...nav.children];
-const sections = document.querySelectorAll('section#work');
+const sections = document.querySelectorAll('section#work, section#skills, section#contact');
 const options = {
   root: container,
   rootMargin: '0px',
@@ -58,12 +58,12 @@ function handleClick(e) {
 [...sections].map((section) => {
   observer.observe(section);
 });
-console.log(observer);
 
 function handleIntersections(e) {
-  if (e[0].intersectionRatio == 0) return;
-  links.forEach((link) => link.classList.remove('active'));
-  const index = [...sections].findIndex((entry) => entry == e[0].target);
   console.log(e);
+  if (e[0].intersectionRatio < 0.1 || (e[1] && e[1].intersectionRatio < 0.1)) return;
+  const target = e[0].intersectionRatio > 0.1 ? e[0].target : e[1].target;
+  links.forEach((link) => link.classList.remove('active'));
+  const index = [...sections].findIndex((entry) => entry == target);
   links[index].classList.add('active');
 }

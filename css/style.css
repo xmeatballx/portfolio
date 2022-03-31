@@ -27,7 +27,7 @@ body {
 }
 
 .section {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 body::-webkit-scrollbar {
@@ -104,7 +104,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: max(min(3vw, 1.5em), 1em);
   line-height: 1;
   font-weight: 500;
   margin: 0;
@@ -143,7 +143,7 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 1ch;
-  /* z-index: 100; */
+  z-index: 100;
   transition: top ease 1000ms, right ease 1000ms, left ease 500ms;
   /* background-color: black; */
 }
@@ -181,6 +181,8 @@ nav a:hover::after {
   flex-direction: column;
   justify-content: center;
   gap: 1.5ch;
+  height: 80vh;
+  padding: 10vh 0;
   /* max-width: 100vw; */
   /* place-items: center; */
   /* height: 100vh; */
@@ -227,9 +229,7 @@ article {
   place-items: center;
   width: 100%;
   margin: auto;
-  /* padding: 2ch 0; */
   gap: 2ch;
-  /* background-color: var(--surface1); */
 }
 
 aside {
@@ -290,7 +290,7 @@ svg {
 .description {
   display: grid;
   width: 90vw;
-  margin: auto;
+  margin: 0 auto;
   grid-template-rows: min-content min-content min-content;
   gap: 1ch;
   backdrop-filter: blur(50px);
@@ -303,6 +303,88 @@ svg {
 .pg-pips {
   display: none;
 }
+
+#skills {
+  width: 88vw;
+  height: 80vh;
+  margin: 10vh auto;
+  /* padding: 10vh 0; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+article.skills {
+  /* width: 88vw; */
+  flex: 0 1 auto;
+  padding: 2ch 0;
+  backdrop-filter: blur(50px);
+  box-shadow: 5px 5px 10px var(--surface1);
+}
+
+article.skills:first-of-type {
+  /* margin-top: 10vh; */
+  /* margin-top: 5vh; */
+}
+
+.skills img {
+  height: 4rem;
+}
+
+.langs {
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  gap: 8vw;
+}
+
+.langs figure {
+  margin: 0;
+  /* flex: 0 1 auto; */
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1ch;
+}
+
+.langs figcaption {
+  width: min-content;
+  text-align: center;
+}
+
+#contact {
+  width: 88vw;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 10vh 0;
+  display: flex;
+  place-items: center;
+}
+
+#contact form {
+  display: grid;
+  gap: 2ch;
+  width: max-content;
+  height: max-content;
+  margin: 0 auto;
+}
+
+#contact label > * {
+  width: 100%;
+}
+
+#contact textarea,
+#contact input[type='email'] {
+  margin-top: 1ch;
+}
+
+#contact textarea {
+  height: 20ch;
+}
+
+/* #contact input {} */
 
 @media (min-width: 743px) {
   /* body {
@@ -347,7 +429,6 @@ svg {
     flex-direction: row;
     /* grid-auto-flow: column; */
     width: 90vw;
-    height: 100vh;
   }
 
   aside {
