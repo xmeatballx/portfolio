@@ -26,7 +26,7 @@ body {
   scroll-behavior: smooth;
 }
 
-.section {
+.scroll-target {
   scroll-snap-align: center;
 }
 
@@ -181,8 +181,8 @@ nav a:hover::after {
   flex-direction: column;
   justify-content: center;
   gap: 1.5ch;
-  height: 80vh;
-  padding: 10vh 0;
+  height: 100vh;
+  /* padding: 5vh 0; */
   /* max-width: 100vw; */
   /* place-items: center; */
   /* height: 100vh; */
@@ -230,6 +230,8 @@ article {
   width: 100%;
   margin: auto;
   gap: 2ch;
+  opacity: 0;
+  transition: opacity 1000ms;
 }
 
 aside {
@@ -322,11 +324,6 @@ article.skills {
   padding: 2ch 0;
   backdrop-filter: blur(50px);
   box-shadow: 5px 5px 10px var(--surface1);
-}
-
-article.skills:first-of-type {
-  /* margin-top: 10vh; */
-  /* margin-top: 5vh; */
 }
 
 .skills img {
@@ -441,7 +438,7 @@ article.skills:first-of-type {
   }
 
   .description {
-    width: auto;
+    width: min-content;
     padding: 4ch 2ch;
     gap: 2ch;
   }
@@ -463,7 +460,7 @@ article.skills:first-of-type {
 
   .screenshot {
     flex-grow: 0;
-    width: 55vw;
+    width: 65vw;
     height: auto;
     margin: 0;
     /* height: 100%; */

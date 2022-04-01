@@ -39,15 +39,25 @@ const container = document.querySelector('.container');
 const nav = document.querySelector('nav');
 const links = [...nav.children];
 const sections = document.querySelectorAll('section#work, section#skills, section#contact');
+const articles = document.querySelectorAll('article');
 const options = {
   root: container,
   rootMargin: '0px',
   threshold: 0.1,
 };
-const observer = new IntersectionObserver(handleIntersections, options);
+const sectionObserver = new IntersectionObserver(handleSectionIntersections, options);
+const articleObserver = new IntersectionObserver(handleArticleIntersections, options);
 
 links.forEach((link) => {
   link.addEventListener('click', handleClick);
+});
+
+[...sections].map((section) => {
+  sectionObserver.observe(section);
+});
+
+[...articles].map((article) => {
+  articleObserver.observe(article);
 });
 
 function handleClick(e) {
@@ -55,15 +65,21 @@ function handleClick(e) {
   e.target.classList.add('active');
 }
 
-[...sections].map((section) => {
-  observer.observe(section);
-});
+function handleSectionIntersections(e) {
+  const event = getEventTarget(e);
+  if (event) {
+    links.forEach((link) => link.classList.remove('active'));
+    const index = [...sections].findIndex((entry) => entry == getEventTarget(e));
+    links[index].classList.add('active');
+  }
+}
 
-function handleIntersections(e) {
-  console.log(e);
+function handleArticleIntersections(e) {
+  const event = getEventTarget(e);
+  if (event) event.style.opacity = 1;
+}
+
+function getEventTarget(e) {
   if (e[0].intersectionRatio < 0.1 || (e[1] && e[1].intersectionRatio < 0.1)) return;
-  const target = e[0].intersectionRatio > 0.1 ? e[0].target : e[1].target;
-  links.forEach((link) => link.classList.remove('active'));
-  const index = [...sections].findIndex((entry) => entry == target);
-  links[index].classList.add('active');
+  return e[0].intersectionRatio > 0.1 ? e[0].target : e[1].target;
 }
