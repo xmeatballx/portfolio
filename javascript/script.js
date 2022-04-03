@@ -76,7 +76,10 @@ function handleSectionIntersections(e) {
 
 function handleArticleIntersections(e) {
   const event = getEventTarget(e);
-  if (event) event.style.opacity = 1;
+  if (event) {
+    event.style.opacity = 1;
+    event.style.transform = 'translateX(0px)';
+  }
 }
 
 function getEventTarget(e) {
