@@ -40,13 +40,18 @@ const nav = document.querySelector('nav');
 const links = [...nav.children];
 const sections = document.querySelectorAll('section#work, section#skills, section#contact');
 const articles = document.querySelectorAll('article');
-const options = {
+const sectionOptions = {
   root: container,
   rootMargin: '0px',
   threshold: 0.1,
 };
-const sectionObserver = new IntersectionObserver(handleSectionIntersections, options);
-const articleObserver = new IntersectionObserver(handleArticleIntersections, options);
+const articleOptions = {
+  root: container,
+  rootMargin: '0px',
+  threshold: 0.5,
+};
+const sectionObserver = new IntersectionObserver(handleSectionIntersections, sectionOptions);
+const articleObserver = new IntersectionObserver(handleArticleIntersections, articleOptions);
 
 links.forEach((link) => {
   link.addEventListener('click', handleClick);
@@ -66,23 +71,21 @@ function handleClick(e) {
 }
 
 function handleSectionIntersections(e) {
-  const event = getEventTarget(e);
-  if (event) {
-    links.forEach((link) => link.classList.remove('active'));
-    const index = [...sections].findIndex((entry) => entry == getEventTarget(e));
-    links[index].classList.add('active');
-  }
+  e.forEach((entry) => {
+    if (entry.isIntersecting) {
+      links.forEach((link) => link.classList.remove('active'));
+      const index = [...sections].findIndex((section) => section == entry.target);
+      console.log(index);
+      links[index].classList.add('active');
+    }
+  });
 }
 
 function handleArticleIntersections(e) {
-  const event = getEventTarget(e);
-  if (event) {
-    event.style.opacity = 1;
-    event.style.transform = 'translateX(0px)';
-  }
-}
-
-function getEventTarget(e) {
-  if (e[0].intersectionRatio < 0.1 || (e[1] && e[1].intersectionRatio < 0.1)) return;
-  return e[0].intersectionRatio > 0.1 ? e[0].target : e[1].target;
+  e.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateX(0px)';
+    }
+  });
 }
