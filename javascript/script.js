@@ -48,7 +48,7 @@ const sectionOptions = {
 const articleOptions = {
   root: container,
   rootMargin: '0px',
-  threshold: 0.5,
+  threshold: 0.25,
 };
 const sectionObserver = new IntersectionObserver(handleSectionIntersections, sectionOptions);
 const articleObserver = new IntersectionObserver(handleArticleIntersections, articleOptions);
